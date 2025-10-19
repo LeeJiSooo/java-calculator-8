@@ -11,7 +11,10 @@ public class StringCalculator {
 
     private int parsePositiveInt(String numberStr) {
         try {
-            int number = Integer.parseInt(numberStr);
+            if (numberStr == null || numberStr.trim().isEmpty()) {
+                throw new IllegalArgumentException("빈 값이나 공백은 숫자로 변환할 수 없습니다.");
+            }
+            int number = Integer.parseInt(numberStr.trim());
             if (number < 0) {
                 throw new IllegalArgumentException("음수는 계산할 수 없습니다.");
             }
