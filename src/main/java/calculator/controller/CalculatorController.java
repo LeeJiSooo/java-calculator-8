@@ -12,13 +12,9 @@ public class CalculatorController {
     private final StringCalculator stringCalculator = new StringCalculator();
 
     public void run() {
-        try {
-            String expression = inputView.getExpression();
-            String[] numbers = separator.split(expression);
-            int result = stringCalculator.sum(numbers);
-            outputView.printResult(result);
-        } catch (IllegalArgumentException e) {
-            outputView.printError(e.getMessage());
-        }
+        String expression = inputView.getExpression();
+        String[] numbers = separator.split(expression);
+        int result = stringCalculator.sum(numbers);
+        outputView.printResult(result);
     }
 }
