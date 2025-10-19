@@ -11,8 +11,9 @@ public class Separator {
         if (text == null || text.trim().isEmpty()) {
             return new String[0];
         }
+        text = text.replace("\\n", "\n");
         Matcher m = CUSTOM_PATTERN.matcher(text);
-        if (m.find()) {
+        if (m.lookingAt()) {
             String customDelimiter = m.group(1);
             return m.group(2).split(Pattern.quote(customDelimiter));
         }
